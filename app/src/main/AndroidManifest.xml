@@ -155,6 +155,8 @@ THE SOFTWARE.
 				<action android:name="ch.blinkenlights.android.vanilla.action.TOGGLE_PLAYBACK" />
 				<action android:name="ch.blinkenlights.android.vanilla.action.NEXT_SONG" />
 				<action android:name="ch.blinkenlights.android.vanilla.action.PREVIOUS_SONG" />
+				<action android:name="ch.blinkenlights.android.vanilla.action.SEEK_FORWARD" />
+				<action android:name="ch.blinkenlights.android.vanilla.action.SEEK_BACKWARD" />
 			</intent-filter>
 		</service>
 

@@ -130,11 +130,11 @@ public class WidgetE extends AppWidgetProvider {
 		pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 		views.setOnClickPendingIntent(R.id.previous, pendingIntent);
 
-		intent = ShortcutPseudoActivity.getIntent(context, PlaybackService.ACTION_CYCLE_SHUFFLE);
+		intent = ShortcutPseudoActivity.getIntent(context, PlaybackService.ACTION_SEEK_BACKWARD); //ACTION_CYCLE_SHUFFLE);
 		pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 		views.setOnClickPendingIntent(R.id.shuffle, pendingIntent);
 
-		intent = ShortcutPseudoActivity.getIntent(context, PlaybackService.ACTION_CYCLE_REPEAT);
+		intent = ShortcutPseudoActivity.getIntent(context, PlaybackService.ACTION_SEEK_FORWARD); //ACTION_CYCLE_REPEAT);
 		pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 		views.setOnClickPendingIntent(R.id.end_action, pendingIntent);
 

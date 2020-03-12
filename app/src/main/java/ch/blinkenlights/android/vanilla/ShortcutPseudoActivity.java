@@ -56,6 +56,8 @@ public class ShortcutPseudoActivity extends Activity {
 			case PlaybackService.ACTION_NEXT_SONG_AUTOPLAY:
 			case PlaybackService.ACTION_PREVIOUS_SONG:
 			case PlaybackService.ACTION_PREVIOUS_SONG_AUTOPLAY:
+			case PlaybackService.ACTION_SEEK_FORWARD:
+			case PlaybackService.ACTION_SEEK_BACKWARD:
 			case PlaybackService.ACTION_CYCLE_SHUFFLE:
 			case PlaybackService.ACTION_CYCLE_REPEAT: {
 				Intent intent = new Intent(this, PlaybackService.class);

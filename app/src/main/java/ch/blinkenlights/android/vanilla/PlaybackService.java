@@ -163,6 +163,14 @@ public final class PlaybackService extends Service
 	 */
 	public static final String ACTION_PREVIOUS_SONG_AUTOPLAY = "ch.blinkenlights.android.vanilla.action.PREVIOUS_SONG_AUTOPLAY";
 	/**
+	 * Action for startService: seek forward.
+	 */
+	public static final String ACTION_SEEK_FORWARD = "ch.blinkenlights.android.vanilla.action.SEEK_FORWARD";
+	/**
+	 * Action for startService: seek backward.
+	 */
+	public static final String ACTION_SEEK_BACKWARD = "ch.blinkenlights.android.vanilla.action.SEEK_BACKWARD";
+	/**
 	 * Flushes the queue, switches to random mode and starts playing.
 	 */
 	public static final String ACTION_RANDOM_MIX_AUTOPLAY = "ch.blinkenlights.android.vanilla.action.RANDOM_MIX_AUTOPLAY";
@@ -588,6 +596,10 @@ public final class PlaybackService extends Service
 				play();
 			} else if (ACTION_PAUSE.equals(action)) {
 				pause();
+			} else if (ACTION_SEEK_FORWARD.equals(action)) {
+				performAction(Action.SeekForward, null);
+			} else if (ACTION_SEEK_BACKWARD.equals(action)) {
+				performAction(Action.SeekBackward, null);
 			} else if (ACTION_CYCLE_REPEAT.equals(action)) {
 				cycleFinishAction();
 			} else if (ACTION_CYCLE_SHUFFLE.equals(action)) {
@@ -2374,7 +2386,7 @@ public final class PlaybackService extends Service
 		case SeekForward:
 			if (mCurrentSong != null) {
 				mPendingSeekSong = mCurrentSong.id;
-				mPendingSeek = getPosition() + 10000;
+				mPendingSeek = getPosition() + getDuration() / 20;
 				// We 'abuse' setCurrentSong as it will stop the playback and restart it
 				// at the new position, taking care of the ui update
 				setCurrentSong(0);
@@ -2383,7 +2395,7 @@ public final class PlaybackService extends Service
 		case SeekBackward:
 			if (mCurrentSong != null) {
 				mPendingSeekSong = mCurrentSong.id;
-				mPendingSeek = getPosition() - 10000;
+				mPendingSeek = getPosition() - getDuration() / 20;
 				if (mPendingSeek < 1) mPendingSeek = 1; // must at least be 1
 				setCurrentSong(0);
 			}
