@@ -106,8 +106,6 @@ public class WidgetE extends AppWidgetProvider {
 
 		boolean playing = (state & PlaybackService.FLAG_PLAYING) != 0;
 		views.setImageViewResource(R.id.play_pause, playing ? R.drawable.pause : R.drawable.play);
-		views.setImageViewResource(R.id.end_action, SongTimeline.FINISH_ICONS[PlaybackService.finishAction(state)]);
-		views.setImageViewResource(R.id.shuffle, SongTimeline.SHUFFLE_ICONS[PlaybackService.shuffleMode(state)]);
 
 		Intent intent;
 		PendingIntent pendingIntent;
@@ -130,13 +128,13 @@ public class WidgetE extends AppWidgetProvider {
 		pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 		views.setOnClickPendingIntent(R.id.previous, pendingIntent);
 
-		intent = ShortcutPseudoActivity.getIntent(context, PlaybackService.ACTION_SEEK_BACKWARD); //ACTION_CYCLE_SHUFFLE);
+		intent = ShortcutPseudoActivity.getIntent(context, PlaybackService.ACTION_SEEK_BACKWARD);
 		pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-		views.setOnClickPendingIntent(R.id.shuffle, pendingIntent);
+		views.setOnClickPendingIntent(R.id.seek_backward, pendingIntent);
 
-		intent = ShortcutPseudoActivity.getIntent(context, PlaybackService.ACTION_SEEK_FORWARD); //ACTION_CYCLE_REPEAT);
+		intent = ShortcutPseudoActivity.getIntent(context, PlaybackService.ACTION_SEEK_FORWARD);
 		pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-		views.setOnClickPendingIntent(R.id.end_action, pendingIntent);
+		views.setOnClickPendingIntent(R.id.seek_forward, pendingIntent);
 
 		manager.updateAppWidget(new ComponentName(context, WidgetE.class), views);
 	}

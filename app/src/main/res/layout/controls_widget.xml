@@ -27,14 +27,14 @@ THE SOFTWARE.
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 	<ImageButton
-		android:id="@+id/shuffle"
+		android:id="@+id/seek_backward"
 		android:layout_height="fill_parent"
 		android:layout_width="0px"
 		android:layout_weight="1"
 		android:background="?android:attr/selectableItemBackground"
 		android:scaleType="fitCenter"
-		android:src="@drawable/shuffle_inactive"
-		android:contentDescription="@string/cycle_shuffle_mode" />
+		android:src="@drawable/seek_backward"
+		android:contentDescription="@string/seek_backward" />
 	<ImageButton
 		android:id="@+id/previous"
 		android:layout_height="fill_parent"
@@ -63,12 +63,12 @@ THE SOFTWARE.
 		android:src="@drawable/next"
 		android:contentDescription="@string/next_song" />
 	<ImageButton
-		android:id="@+id/end_action"
+		android:id="@+id/seek_forward"
 		android:layout_height="fill_parent"
 		android:layout_width="0px"
 		android:layout_weight="1"
 		android:background="?android:attr/selectableItemBackground"
 		android:scaleType="fitCenter"
-		android:src="@drawable/repeat_inactive"
-		android:contentDescription="@string/cycle_repeat_mode" />
+		android:src="@drawable/seek_forward"
+		android:contentDescription="@string/seek_forward" />
 </merge>
